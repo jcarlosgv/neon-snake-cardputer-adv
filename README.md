@@ -1,8 +1,10 @@
 # Neon Snake for Cardputer ADV
 
-<img width="1065" height="600" alt="Captura de pantalla 2026-11-25 a la(s) 10 02 03 pm" src="https://github.com/user-attachments/assets/1210a68c-b6fc-4e08-be01-59de9a76c475" />
+<img width="1320" height="742" alt="cover" src="https://github.com/user-attachments/assets/b7c3b3c1-49d2-4f8f-bcb1-cabd1fef8511" />
 
-<img width="1065" height="600" alt="Captura de pantalla 2026-11-25 a la(s) 10 03 00 pm" src="https://github.com/user-attachments/assets/ef0c4465-23db-49f5-a28a-94aa789fc088" />
+
+<img width="1320" height="742" alt="gameplay" src="https://github.com/user-attachments/assets/3cd771a7-1090-4aa7-941e-863663fcb378" />
+
 
 A colorful single-player retro snake game designed for M5Stack Cardputer ADV.
 
