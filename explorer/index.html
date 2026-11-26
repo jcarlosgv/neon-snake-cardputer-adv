@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b15">
+  <meta name="description" content="Serpiente Neón: juego individual para Cardputer ADV con bordes envolventes, obstáculos móviles, potenciadores y vidas.">
+  <title>Serpiente Neón — Cardputer ADV</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#jugar">Saltar al juego</a>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Serpiente Neón, inicio"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>NEON<span>/</span>SNAKE</span></a>
+    <div class="hardware-label"><span class="status-dot"></span> CARDPUTER ADV <span>/</span> 1 JUGADOR</div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">UNA SERPIENTE · NINGÚN LÍMITE</p>
+        <h1 id="hero-title">La pantalla no<br><em>te detiene.</em></h1>
+      </div>
+      <div class="hero-copy">
+        <p>Cruza los bordes. Esquiva las líneas. Crece con cada fragmento de luz y aprovecha cinco segundos que pueden cambiarlo todo.</p>
+        <a class="button button-primary" href="#jugar">Jugar ahora <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="play-section" id="jugar" aria-labelledby="play-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">SERPIENTE NEÓN</p><h2 id="play-title">Sobrevive. Crece. Repite.</h2></div>
+        <div class="scoreboard" role="group" aria-label="Estado de la partida">
+          <div><span>Puntos</span><strong id="score-value">0</strong></div>
+          <div><span>Vidas</span><strong id="lives-value">3</strong></div>
+          <div><span>Efecto</span><strong id="power-value">—</strong></div>
+        </div>
+      </div>
+
+      <div class="game-layout">
+        <div class="game-stage" id="game-stage">
+          <canvas id="game-canvas" width="240" height="135" tabindex="0" role="img" aria-label="NEON SNAKE. Pulsa Enter para iniciar. Usa las flechas para moverte, espacio para acelerar y R para reiniciar."></canvas>
+          <span class="screen-label">240 × 135 · PANTALLA COMPLETA</span>
+        </div>
+        <aside class="control-panel" aria-label="Controles del juego">
+          <div class="panel-actions"><button class="button button-quiet" id="pause-game" type="button">Pausar</button><button class="button button-quiet" id="restart-game" type="button">Reiniciar</button></div>
+          <div class="touch-pad" role="group" aria-label="Controles de movimiento"><button type="button" data-direction="up" aria-label="Mover arriba">↑</button><button type="button" data-direction="left" aria-label="Mover izquierda">←</button><button type="button" data-direction="down" aria-label="Mover abajo">↓</button><button type="button" data-direction="right" aria-label="Mover derecha">→</button></div>
+          <button class="action-button" id="action-button" type="button"><span>ESPACIO</span> Acelerar</button>
+          <dl class="key-list"><div><dt><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></dt><dd>Mover</dd></div><div><dt><kbd>Espacio</kbd></dt><dd>Acelerar</dd></div><div><dt><kbd>R</kbd></dt><dd>Reiniciar</dd></div><div><dt><kbd>Enter</kbd></dt><dd>Iniciar / revivir</dd></div></dl>
+          <p class="focus-note">Haz clic en la pantalla para activar el teclado.</p>
+        </aside>
+      </div>
+      <p class="sr-status" id="game-status" role="status" aria-live="polite">NEON SNAKE. Pulsa Enter para iniciar.</p>
+    </section>
+
+    <section class="powers-section" aria-labelledby="powers-title">
+      <div class="section-heading"><div><p class="eyebrow">OBJETOS ESPECIALES</p><h2 id="powers-title">Cinco segundos. Tres oportunidades.</h2></div><p>Aparecen aleatoriamente y parpadean antes de desaparecer. En esta demo puedes llamarlos para descubrir su efecto.</p></div>
+      <div class="power-grid">
+        <article class="power-card blast-card"><div class="power-icon" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><h3>Explosión</h3><p>Una onda expansiva elimina todas las líneas visibles y despeja el camino.</p><button type="button" data-power="0">Invocar explosión <span aria-hidden="true">↗</span></button></article>
+        <article class="power-card slow-card"><div class="power-icon hourglass" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><h3>Reloj de plasma</h3><p>Durante ocho segundos, las líneas se vuelven más lentas y turquesas. Come cada línea completa para ganar 500 puntos.</p><button type="button" data-power="1">Invocar reloj <span aria-hidden="true">↗</span></button></article>
+        <article class="power-card heart-card"><div class="power-icon heart" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><h3>Corazón</h3><p>Recupera una vida, hasta un máximo de cinco, con una animación ascendente.</p><button type="button" data-power="2">Invocar corazón <span aria-hidden="true">↗</span></button></article>
+      </div>
+    </section>
+
+    <section class="rules-section" aria-labelledby="rules-title">
+      <p class="eyebrow">REGLAS DEL MICROCOSMO</p><h2 id="rules-title">Simple de entender. Difícil de dominar.</h2>
+      <div class="rules-grid"><div><span>01</span><h3>Sin paredes</h3><p>Sal por un borde y aparece en el contrario, tanto horizontal como verticalmente.</p></div><div><span>02</span><h3>Más presión</h3><p>Cada fragmento suma puntos y atrae nuevas líneas horizontales y verticales.</p></div><div><span>03</span><h3>Tres vidas</h3><p>Un impacto reinicia la serpiente y te protege durante dos segundos.</p></div></div>
+    </section>
+  </main>
+  <footer><span>NEON/SNAKE</span><p>Diseñado para Cardputer ADV. Sin radio. Sin accesorios. Un solo jugador.</p><span>40 × 23 CELDAS</span></footer>
+</body>
+</html>
